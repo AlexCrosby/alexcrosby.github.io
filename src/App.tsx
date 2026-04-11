@@ -13,6 +13,7 @@ function App() {
   const [cursorPos, setCursorPos] = useState(0);
   const [commandId, setCommandId] = useState(0);
   const [showWelcome, setShowWelcome] = useState(true);
+  const [ip, setIp] = useState<string>('unknown');
 
   // Separate list of just the command strings for Up/Down history navigation
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
@@ -27,9 +28,16 @@ function App() {
     bottomRef.current?.scrollIntoView({ behavior: 'auto' });
   }, [history, input]);
 
+  useEffect(() => {
+    fetch('https://api.ipify.org?format=json')
+      .then(res => res.json())
+      .then(data => setIp(data.ip))
+      .catch(() => setIp('unknown'));
+  }, []);
+
   // If the user types while text is selected, clear selection and re-focus input
   useEffect(() => {
-    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+    const handleGlobalKeyDown = (_: KeyboardEvent) => {
       const selection = window.getSelection();
       if (selection && selection.toString().length > 0) {
         selection.removeAllRanges();
@@ -155,7 +163,7 @@ function App() {
 
   const prompt = (
     <span className="terminal-prompt">
-      user@react-term:~$
+      user@{ip}:~$
     </span>
   );
 
@@ -173,8 +181,7 @@ function App() {
             &nbsp;/ ___ |/ /  __/&gt;  &lt;/ /_/ /___/ /<br />
             /_/  |_/_/\___/_/|_|\____//____/<br />
           </div>
-          <div>Welcome to React Terminal.</div>
-          <div>Theme: Black and White. Configured with an Ubuntu-style block cursor.</div>
+          <div>Welcome to AlexOS.</div>
           <div>Type 'help' to see a list of available commands.</div>
         </div>
       }
