@@ -1,5 +1,5 @@
 import React from 'react';
-import type { CommandDef, CommandResult } from './types';
+import type { CommandDef } from './types';
 import { themes } from '../constants/themes';
 
 /**
@@ -7,7 +7,7 @@ import { themes } from '../constants/themes';
  */
 const themeCommand: CommandDef = {
   description: 'Switch terminal themes',
-  handler: (args, { setTheme }) => {
+  handler: (args) => {
     const targetTheme = args[0]?.toLowerCase();
 
     if (!targetTheme) {
@@ -34,9 +34,9 @@ const themeCommand: CommandDef = {
     }
 
     if (themes[targetTheme]) {
-      setTheme(targetTheme);
       return {
-        type: 'output',
+        type: 'theme',
+        themeName: targetTheme,
         node: <div className="command-output">Theme switched to '{themes[targetTheme].name}'.</div>
       };
     }

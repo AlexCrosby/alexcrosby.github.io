@@ -1,4 +1,3 @@
-import React from 'react';
 import type { CommandDef } from './types';
 import { resolvePath, getNode } from '../vfs';
 

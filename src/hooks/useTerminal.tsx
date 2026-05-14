@@ -4,7 +4,6 @@ import type { CommandResult } from '../commands';
 import welcomeCommand from '../commands/welcome';
 import { getAutocompleteOptions } from '../vfs';
 import { themes } from '../constants/themes';
-import type { Theme } from '../constants/themes';
 
 /**
  * Calculates the longest common prefix among an array of strings.
@@ -137,6 +136,14 @@ export function useTerminal() {
         setCommandId(prev => prev + 1);
         setActiveInteraction(null);
         break;
+      
+      case 'theme':
+        // Change theme and show output
+        setThemeName(result.themeName);
+        setHistory(prev => [...prev, { id, prompt: promptNode, command: cmd, output: result.node }]);
+        setCommandId(prev => prev + 1);
+        setActiveInteraction(null);
+        break;
 
       case 'interactive':
         // Multi-step command: append the input but no output yet, and hijack the prompt
@@ -164,7 +171,7 @@ export function useTerminal() {
     }
 
     // Otherwise, run the command's handler function
-    return commandDef.handler(args.slice(1), { ip, cwd, setTheme: setThemeName });
+    return commandDef.handler(args.slice(1), { ip, cwd });
   };
 
   const handleAutocomplete = () => {
