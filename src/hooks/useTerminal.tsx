@@ -39,7 +39,7 @@ export interface Interaction {
 }
 
 // Generate the initial welcome banner output at startup
-const welcomeNode = welcomeCommand.handler([], { ip: '', cwd: '' });
+const welcomeNode = welcomeCommand.handler([], { cwd: '' });
 const initialHistory: HistoryItem[] =
   welcomeNode.type === 'output'
     ? [{ id: 0, prompt: null, command: '', output: welcomeNode.node }]
