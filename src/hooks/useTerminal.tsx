@@ -136,7 +136,7 @@ export function useTerminal() {
         setCommandId(prev => prev + 1);
         setActiveInteraction(null);
         break;
-      
+
       case 'theme':
         // Change theme and show output
         setThemeName(result.themeName);
@@ -171,7 +171,7 @@ export function useTerminal() {
     }
 
     // Otherwise, run the command's handler function
-    return commandDef.handler(args.slice(1), { ip, cwd });
+    return commandDef.handler(args.slice(1), { cwd });
   };
 
   const handleAutocomplete = () => {

@@ -1,7 +1,6 @@
 import React from 'react';
 
 export interface CommandContext {
-  ip: string;
   cwd: string;
 }
 
