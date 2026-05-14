@@ -1,0 +1,2 @@
+Hi! I am Alex. Welcome to my terminal portfolio.
+Type `ls` to see what is here, and `cat <filename>` to read a file.

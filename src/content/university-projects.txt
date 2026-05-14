@@ -1,0 +1,7 @@
+Source Code Authorship Identification
+Python, TensorFlow, AWS
+- Built a first-place authorship identification system for the FIRE 2020 challenge using several artificial intelligence techniques including Google’s BERT-based natural language processing model, custom neural networks I developed myself, AST parsing, and stylometric analysis, and published a peer reviewed paper on the methodology.
+
+Online Pictionary Game
+Java, JavaFX, PostgreSQL
+- Developed a client–server drawing game with GUI, encryption, multithreading, and real time communication implemented using sockets.

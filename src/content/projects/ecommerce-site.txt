@@ -1,0 +1,1 @@
+E-commerce site: A full-stack Next.js project with Stripe integration.

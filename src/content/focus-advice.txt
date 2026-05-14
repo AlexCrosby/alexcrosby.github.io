@@ -1,0 +1,13 @@
+Focus Advice Technology: Software Developer (October 2020 - Present)
+
+Key Responsibilities:
+
+- Develop high-scale RESTful microservices using ASP.NET Core and C# 10+ within a multi-tenant enterprise architecture for the Saturn Programme. Engineered complex engines like the Auto Allocator, implementing sophisticated benefit-matching logic using rules-based prioritization and term tolerance to support a large-scale financial advisory service.
+
+- Designed a dynamic configuration system using Azure Blob Storage to host versioned JSON datasets (Tax, Inflation, Annuity). This decoupled legislative data from the application layer, allowing for real-time updates of global parameters without requiring service redeployments or downtime.
+
+- Architected the Defined Benefit Pension Calculator, managing intricate financial modelling for Career Average Revalued Earnings, Final Average Salary, and Pension Commencement Lump Sum tax-free cash limits. Designed the system to handle complex validation logic and multi-layered calculation methodologies, exposed via high-performance APIs for enterprise-wide consumption.
+
+- Established a robust xUnit integration testing framework with shared harnesses and tag-driven CI/CD pipelines, ensuring 95%+ coverage across business-critical tax and economic modelling logic (Inheritance Tax, State Pension, and Annuity).
+
+- Implemented asynchronous programming patterns and dependency injection to enhance the scalability of the microservice suite. Leveraged SOLID principles to refactor legacy calculation logic into modular, reusable components, significantly reducing technical debt and improving system maintainability.

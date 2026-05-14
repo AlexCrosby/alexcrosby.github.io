@@ -1,0 +1,2 @@
+Company B: Frontend Developer (2022-Present)
+Led the transition to React and TypeScript.
