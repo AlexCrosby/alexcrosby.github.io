@@ -26,7 +26,7 @@ const lsCommand: CommandDef = {
     // It's a directory
     const childrenNames = Object.entries(node.children).map(([name, childNode]) => {
       // Add trailing slash for directories to make them distinct
-      return childNode.type === 'dir' ? <span key={name} style={{ color: '#61dafb' }}>{name}/</span> : <span key={name}>{name}</span>;
+      return childNode.type === 'dir' ? <span key={name} style={{ color: 'var(--folder-color)' }}>{name}/</span> : <span key={name}>{name}</span>;
     });
 
     return {

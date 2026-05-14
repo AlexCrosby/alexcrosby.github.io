@@ -3,6 +3,8 @@ import { commands } from '../commands';
 import type { CommandResult } from '../commands';
 import welcomeCommand from '../commands/welcome';
 import { getAutocompleteOptions } from '../vfs';
+import { themes } from '../constants/themes';
+import type { Theme } from '../constants/themes';
 
 /**
  * Calculates the longest common prefix among an array of strings.
@@ -64,6 +66,18 @@ export function useTerminal() {
   const [cwd, setCwd] = useState<string>('~');
   // If not null, the terminal is currently hijacked by an interactive command
   const [activeInteraction, setActiveInteraction] = useState<Interaction | null>(null);
+
+  // --- Theme State ---
+  const [themeName, setThemeName] = useState<string>(() => {
+    return localStorage.getItem('alexos-theme') || 'default';
+  });
+
+  const currentTheme = themes[themeName] || themes.default;
+
+  // Persist theme choice
+  useEffect(() => {
+    localStorage.setItem('alexos-theme', themeName);
+  }, [themeName]);
 
   // --- Keyboard Up/Down History State ---
   // A memory of just the strings the user has typed (for pressing Up/Down arrows)
@@ -150,7 +164,7 @@ export function useTerminal() {
     }
 
     // Otherwise, run the command's handler function
-    return commandDef.handler(args.slice(1), { ip, cwd });
+    return commandDef.handler(args.slice(1), { ip, cwd, setTheme: setThemeName });
   };
 
   const handleAutocomplete = () => {
@@ -336,5 +350,7 @@ export function useTerminal() {
     handleKeyDown,
     updateCursor,
     isCursorMoving,
+    theme: currentTheme,
+    setTheme: setThemeName,
   };
 }

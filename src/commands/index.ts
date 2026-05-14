@@ -5,6 +5,7 @@ import welcomeCommand from './welcome';
 import lsCommand from './ls';
 import cdCommand from './cd';
 import catCommand from './cat';
+import themeCommand from './theme';
 import { createHelpCommand } from './help';
 
 const registry: Record<string, CommandDef> = {
@@ -14,6 +15,7 @@ const registry: Record<string, CommandDef> = {
   ls: lsCommand,
   cd: cdCommand,
   cat: catCommand,
+  theme: themeCommand,
 };
 
 // Help is added last so it can reference the fully-built registry

@@ -3,6 +3,7 @@ import React from 'react';
 export interface CommandContext {
   ip: string;
   cwd: string;
+  setTheme: (name: string) => void;
 }
 
 export type CommandResult =

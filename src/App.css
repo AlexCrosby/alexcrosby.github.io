@@ -3,8 +3,13 @@
 :root {
   --bg-color: #000000;
   --text-color: #ffffff;
+  --prompt-color: #ffffff;
+  --folder-color: #61dafb;
+  --cursor-color: #ffffff;
+  --output-color: #cccccc;
   --font-family: Consolas, monaco, monospace;
-  /* , 'Fira Code', 'Courier New', Courier, monospace; */
+  --font-size: 16px;
+  --line-height: 1;
 }
 
 body,
@@ -16,8 +21,16 @@ html {
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: var(--font-family);
-  font-size: 16px;
+  font-size: var(--font-size);
   overflow: hidden;
+}
+
+div {
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
 }
 
 *,
@@ -37,7 +50,7 @@ html {
   width: 100%;
   overflow-y: auto;
   cursor: text;
-  line-height: 1;
+  line-height: var(--line-height);
 }
 
 .terminal-welcome {
@@ -58,6 +71,7 @@ html {
   /* font-weight: bold; */
   white-space: pre;
   margin-right: 0px;
+  color: var(--prompt-color);
 }
 
 .terminal-line {
@@ -70,7 +84,7 @@ html {
   /* margin-left: 16px; */
   /* margin-top: 4px; */
   margin-bottom: 2px;
-  color: #cccccc;
+  color: var(--output-color);
   white-space: pre-wrap;
   word-break: break-all;
 }
@@ -94,19 +108,19 @@ html {
 
   0%,
   100% {
-    background-color: var(--text-color);
+    background-color: var(--cursor-color);
     color: var(--bg-color);
   }
 
   50% {
     background-color: transparent;
-    color: var(--text-color);
+    color: var(--cursor-color);
   }
 }
 
 .blinking-cursor.solid {
   animation: none;
-  background-color: var(--text-color);
+  background-color: var(--cursor-color);
   color: var(--bg-color);
 }
 

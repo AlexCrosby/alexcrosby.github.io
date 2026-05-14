@@ -13,10 +13,24 @@ function App() {
     handleKeyDown,
     updateCursor,
     isCursorMoving,
+    theme,
   } = useTerminal();
 
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Apply theme variables directly to the container
+  const themeStyles = {
+    '--bg-color': theme.colors.bg,
+    '--text-color': theme.colors.text,
+    '--prompt-color': theme.colors.prompt,
+    '--folder-color': theme.colors.folder,
+    '--cursor-color': theme.colors.cursor,
+    '--output-color': theme.colors.output,
+    '--font-family': theme.typography.fontFamily,
+    '--font-size': theme.typography.fontSize,
+    '--line-height': theme.typography.lineHeight,
+  } as React.CSSProperties;
 
   // Auto-scroll to bottom whenever history or input changes
   useEffect(() => {
@@ -48,6 +62,7 @@ function App() {
     <div
       className="terminal-container"
       onClick={handleTerminalClick}
+      style={themeStyles}
     >
       <div>
         {history.map((item) => (
